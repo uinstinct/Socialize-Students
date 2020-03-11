@@ -5,6 +5,8 @@ from django.utils import timezone
 
 class Student(models.Model):
     username=models.CharField(max_length=255, unique=True)
+    password=models.CharField(max_length=100,default="shuriken")
+    email=models.CharField(max_length=200,default="gren@ninja.com")
     name=models.TextField()
     year=models.IntegerField()
     college=models.TextField()

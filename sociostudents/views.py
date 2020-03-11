@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Student
 from .forms import StudentForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+
 
 # Create your views here.
 def homepage(request):
@@ -22,11 +24,17 @@ def new_student(request):
 	if request.method=="POST":
 		form=StudentForm(request.POST)
 		if form.is_valid():
+
 			newStudent = form.save(commit=False)
+
+			user = User.objects.create_user(newStudent.username, newStudent.email, newStudent.password)
+			print(user)
+			user.save()
+
 			newStudent.state='Jadiop'
 			newStudent.save()
 			return redirect('list_student', username=newStudent.username)
+
 	else:
 		form = StudentForm()
-	print(form)
 	return render(request,'students/new_student.html',{'form':form})
