@@ -4,4 +4,4 @@
 
 ###Created using Djnago
 
-###Database used is SQLLite3
+###Database used is SQLLite3#Socio Students 

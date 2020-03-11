@@ -1,34 +1,86 @@
 {% extends 'students/base.html' %}
-{% block content %}
-    <h1>NEW STUDENT ENTRY</h1>
+{%load static%}
+{%block head%}
 
-    <form method='POST' >{% csrf_token %}
-        <article class="formPages">
-        	<section class="form1">
-        		
-        	</section>
-        	<section class="form2"></section>
-        </article>
-    </form>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/signup.css'%}">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{%endblock head%}
+
+
+{% block content %}
+
+	<header id="header">
+		<h1 id="title">SocioStudents</h1>
+		<p id="description">Sign Up</p>
+	</header>
+
+	<div id="page">
+	    <form method='POST' >{% csrf_token %}
+	        <article class="formPages">
+	        	<section class="form1">
+	        		<section class="form-group">
+					<label id="name-label" for="name">Username</label>
+					<input class="form-control" type="text" id="name" required name="username" placeholder="lowercase letters, hyphen and underscores are only allowed">
+				</section>
+
+				<section class="form-group">
+					<label id="email-label" for="email">Your email
+						<div id="email-assurance">We never send you unnecessary information</div>
+					</label>
+					<input class="form-control" type="email" id="email" name="" placeholder="youremail@example.com">
+				</section>
+
+				<section class="form-group">
+					<label for="nameofuser">What can we call you?</label>
+					<input class="form-control" type="text" id="nameofuser" required name="name" placeholder="FirstName LastName">
+				</section>
+
+				<section class="form-group">
+					<label for="year">Which year are you in?</label>
+					<select class="form-control" id="year" required name="year">
+						<option selected value="" disabled="">Select Choice</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</section>
+
+				<section class="form-group">
+					<label for="college">Which college are you in?</label>
+					<input class="form-control" type="text" id="college" required name="college" placeholder="College Name">
+				</section>
+
+				<section class="form-group">
+					<label for="city">Which city are you from?</label>
+					<input class="form-control" type="text" id="city" required name="city" placeholder="Your city">
+				</section>
+
+				<section class="form-group">
+					<label for="state">Which city are you from?</label>
+					<input class="form-control" type="text" id="state" required name="state" placeholder="Your state">
+				</section>				
+
+				<section class="form-group">
+					<label for="interests">What things are you interested in?</label>
+					<input class="form-control" type="text" id="interests" required name="interests" placeholder="Use commas to separate your interests">
+				</section>
+
+				<section class="form-group">
+					<label for="skills">What skills do you have?</label>
+					<input class="form-control" type="text" id="skills" required name="skills" placeholder="Use commas to separate your skills">
+				</section>
+
+				<section class="form-group">
+					<p>Add a little bio about you</p>
+					<textarea id="comments" placeholder="Hey, tell us more about you" required name="bio"></textarea>
+				</section>
+				<button class="submit">SIGN UP</button>
+	        	</section>
+	        	<section class="form2"></section>
+	        </article>
+	    </form>
 
 {% endblock content %}
 
-
-
-
-
-
-<tr><th><label for="id_username">Username:</label></th><td><input type="text" name="username" maxlength="255" required id="id_username"></td></tr>
-<tr><th><label for="id_name">Name:</label></th><td><textarea name="name" cols="40" rows="10" required id="id_name">
-</textarea></td></tr>
-<tr><th><label for="id_year">Year:</label></th><td><input type="number" name="year" required id="id_year"></td></tr>
-<tr><th><label for="id_college">College:</label></th><td><textarea name="college" cols="40" rows="10" required id="id_college">
-</textarea></td></tr>
-<tr><th><label for="id_interests">Interests:</label></th><td><textarea name="interests" cols="40" rows="10" required id="id_interests">
-</textarea></td></tr>
-<tr><th><label for="id_skills">Skills:</label></th><td><textarea name="skills" cols="40" rows="10" required id="id_skills">
-</textarea></td></tr>
-<tr><th><label for="id_city">City:</label></th><td><textarea name="city" cols="40" rows="10" required id="id_city">
-</textarea></td></tr>
-<tr><th><label for="id_state">State:</label></th><td><textarea name="state" cols="40" rows="10" required id="id_state">
-</textarea></td></tr>
