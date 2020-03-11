@@ -1,0 +1,26 @@
+{% extends 'students/base.html'%}
+{% load static %}
+
+{%block head%}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/all_students.css' %}">
+    <title>SocioStudents</title>
+{%endblock head%}
+{%block content%}
+    {%for student in students%}
+    <article id="stud">
+
+        <div id="profilePhoto"><img src="https://images.pexels.com/photos/3541388/pexels-photo-3541388.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="profile pic" id="profile_pic" width="100px" height="30px"></div>
+        
+        <div id="details">
+            <span>Name : {{student.name}} </span><br>
+
+            <span>Year : {{student.year}} </span><br>
+
+            <span> My college is {{student.college}} </span><br>
+
+            <span>Find out <a href="{%url 'list_student' username=student.username %}">@{{student.username}}</a> </span><br>
+        </div>
+
+    </article>
+    {%endfor%}
+{%endblock content%}   

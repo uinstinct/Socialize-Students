@@ -1,0 +1,27 @@
+
+{% extends 'students/base.html'%}
+{%block content%}
+<head>
+    <link rel="stylesheet" type="text/css" href="all_students.css">
+    <title>SocioStudents</title>
+</head>
+    <a href="{% url 'new_student' %}"><button>CREATE NEW STUDENT</button></a>
+    <h3>The students are :</h3>
+    {%for student in students%}
+    <article id="stud">
+
+        <div id="profilePhoto"><img src="https://images.pexels.com/photos/3541388/pexels-photo-3541388.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="profile pic" id="profile_pic"></div>
+        
+        <div id="details">
+            <span>Name : {{student.name}} </span><br>
+
+            <span>Year : {{student.year}} </span><br>
+
+            <span> My college is {{student.college}} </span><br>
+
+            <span>Find out <a href="{%url 'list_student' username=student.username %}">@{{student.username}}</a> </span><br>
+        </div>
+
+    </article>
+    {%endfor%}
+{%endblock%}   

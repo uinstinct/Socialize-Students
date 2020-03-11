@@ -1,0 +1,34 @@
+{% extends 'students/base.html' %}
+{% block content %}
+    <h1>NEW STUDENT ENTRY</h1>
+
+    <form method='POST' >{% csrf_token %}
+        <article class="formPages">
+        	<section class="form1">
+        		
+        	</section>
+        	<section class="form2"></section>
+        </article>
+    </form>
+
+{% endblock content %}
+
+
+
+
+
+
+<tr><th><label for="id_username">Username:</label></th><td><input type="text" name="username" maxlength="255" required id="id_username"></td></tr>
+<tr><th><label for="id_name">Name:</label></th><td><textarea name="name" cols="40" rows="10" required id="id_name">
+</textarea></td></tr>
+<tr><th><label for="id_year">Year:</label></th><td><input type="number" name="year" required id="id_year"></td></tr>
+<tr><th><label for="id_college">College:</label></th><td><textarea name="college" cols="40" rows="10" required id="id_college">
+</textarea></td></tr>
+<tr><th><label for="id_interests">Interests:</label></th><td><textarea name="interests" cols="40" rows="10" required id="id_interests">
+</textarea></td></tr>
+<tr><th><label for="id_skills">Skills:</label></th><td><textarea name="skills" cols="40" rows="10" required id="id_skills">
+</textarea></td></tr>
+<tr><th><label for="id_city">City:</label></th><td><textarea name="city" cols="40" rows="10" required id="id_city">
+</textarea></td></tr>
+<tr><th><label for="id_state">State:</label></th><td><textarea name="state" cols="40" rows="10" required id="id_state">
+</textarea></td></tr>
