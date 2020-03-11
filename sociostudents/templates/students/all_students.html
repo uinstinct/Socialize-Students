@@ -6,6 +6,12 @@
     <title>SocioStudents</title>
 {%endblock head%}
 {%block content%}
+
+{%if user.is_authenticated %}
+<h1>{{user.username}} is logged in</h1>
+{%else%}
+<h1>You are NOT logged In</h1>
+{%endif%}
     {%for student in students%}
     <article id="stud">
 
