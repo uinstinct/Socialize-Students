@@ -28,7 +28,7 @@ def new_student(request):
 			newStudent = form.save(commit=False)
 
 			user = User.objects.create_user(newStudent.username, newStudent.email, newStudent.password)
-			print(user)
+			# print(user)
 			user.save()
 
 			newStudent.state='Jadiop'
@@ -38,3 +38,7 @@ def new_student(request):
 	else:
 		form = StudentForm()
 	return render(request,'students/new_student.html',{'form':form})
+
+	def logout_view(request):
+		logout(request)
+		return redirect('/')
