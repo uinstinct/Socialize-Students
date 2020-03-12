@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 def homepage(request):
-    return render(request,'landingpage.html')
+	return render(request,'landingpage.html')
 
 def all_students(request):
     students = Student.objects.all()
@@ -63,11 +63,10 @@ def new_student(request):
 
 			newStudent.state='Jadiop'
 			newStudent.save()
-			if request.user.is_authenticated():
-				logout(request)
-				return render(request, 'registration/login.html')
-			else:
-				return render(request, 'students/profilepage.html', {'student':student})
+			if request.user.is_authenticated:
+				redirect('logout')
+				return redirect('login')
+			return render(request, 'students/profilepage.html', {'student':student})
 
 	else:
 		form = StudentForm()
