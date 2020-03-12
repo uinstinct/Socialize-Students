@@ -19,6 +19,34 @@ def list_student(request, username):
     student =  get_object_or_404(Student, username=username)
     return render(request, 'students/profilepage.html', {'student':student})
 
+# @login_required
+def edit_student(request, username):
+	# print(username)
+	student = get_object_or_404(Student, username=username)
+
+	# print(student.name)
+	user = get_object_or_404(User, username=username)
+	if request.method == "POST":
+		form = StudentForm(request.POST, instance=student)
+		if form.is_valid():
+			editStudent=form.save(commit=False)
+
+			print("printing user details below")
+			print(editStudent)
+
+			# changing the user account
+			# user.username=editStudent.username
+			# user.password=editStudent.password
+			# user.email=editStudent.email
+			# user.save();
+			#changing the student account
+			editStudent.city='Xaden'
+			editStudent.save()
+			return redirect('list_student', username=editStudent.username)
+	else:
+		form=StudentForm(instance=student)
+	return render(request, 'students/editProfile.html',{'student':student})
+
 def new_student(request):
 
 	if request.method=="POST":

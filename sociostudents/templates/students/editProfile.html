@@ -1,0 +1,90 @@
+{% extends 'students/base.html' %}
+{%load static%}
+{%block head%}
+
+		<link rel="stylesheet" type="text/css" href="{%static 'css/signup.css'%}">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{%endblock head%}
+
+
+{% block content %}
+
+	<header id="header">
+		<h1 id="title">SocioStudents</h1>
+		<p id="description">EDIT</p>
+	</header>
+
+	<div id="page">
+	    <form method='POST' >{% csrf_token %}
+	        <article class="formPages">
+	        	<section class="form1">
+	        		<section class="form-group">
+					<label id="name-label" for="name">Username</label>
+					<input class="form-control" type="text" id="name" required name="username" value="{{student.username}}">
+				</section>
+
+				<section class="form-group">
+					<label id="password-label" for="password">Password:
+					</label>
+					<input class="form-control" type="password" id="password" name="password" value="{{student.password}}">
+				</section>
+
+				<section class="form-group">
+					<label id="email-label" for="email">Your email
+						<div id="email-assurance">We never send you unnecessary information</div>
+					</label>
+					<input class="form-control" type="email" id="email" name="email" value="{{student.email}}">
+				</section>
+
+				<section class="form-group">
+					<label for="nameofuser">What can we call you?</label>
+					<input class="form-control" type="text" id="nameofuser" required name="name" value="{{student.name}}">
+				</section>
+
+				<section class="form-group">
+					<label for="year">Which year are you in?</label>
+					<select class="form-control" id="year" required name="year">
+						<option selected value="{{student.year}}" disabled="">{{student.year}}</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</section>
+
+				<section class="form-group">
+					<label for="college">Which college are you in?</label>
+					<input class="form-control" type="text" id="college" required name="college" value="{{student.college}}">
+				</section>
+
+				<section class="form-group">
+					<label for="city">Which city are you from?</label>
+					<input class="form-control" type="text" id="city" required name="city" value="{{student.city}}">
+				</section>
+
+				<section class="form-group">
+					<label for="state">Which state are you from?</label>
+					<input class="form-control" type="text" id="state" required name="state" value="{{student.state}}">
+				</section>				
+
+				<section class="form-group">
+					<label for="interests">What things are you interested in?</label>
+					<input class="form-control" type="text" id="interests" required name="interests" value="{{student.interests}}">
+				</section>
+
+				<section class="form-group">
+					<label for="skills">What skills do you have?</label>
+					<input class="form-control" type="text" id="skills" required name="skills" value="{{student.skills}}">
+				</section>
+
+				<section class="form-group">
+					<p>Add a little bio about you</p>
+					<textarea id="comments">{{student.bio}}</textarea>
+				</section>
+				<button class="submit">EDIT</button>
+	        	</section>
+	        </article>
+	    </form>
+
+{% endblock content %}
