@@ -5,3 +5,6 @@
 ###Created using Djnago
 
 ###Database used is SQLLite3#Socio Students 
+
+
+![Image Here](sociostudents/static/images/profilepagephoto.jpg?raw=true "Title")
