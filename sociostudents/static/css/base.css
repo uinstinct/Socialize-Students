@@ -10,7 +10,8 @@ body
 .navbar-area
 {
 	position: fixed;
-	height: 5rem;
+	height: 4rem;
+	background-color: black;
 }
 .navbar
 {
@@ -41,6 +42,7 @@ body
 	text-decoration: none;
 	border-bottom: 2px solid lightblue;
 	padding: 1rem;
+	padding-bottom: 0.65rem;
 	transition: color 0.75s ease-out;
 }
 .navbar-area a:hover

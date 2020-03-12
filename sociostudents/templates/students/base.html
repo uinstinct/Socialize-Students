@@ -7,7 +7,7 @@
     
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-    
+    <script defer src="https://friconix.com/cdn/friconix.js"> </script>
     {%block head%}
     {%endblock head%}
 
@@ -17,19 +17,25 @@
 	<section class="navbar-area" style="z-index: 1;">	
 		<div class="navbar" style="background-color: black;">
 			<nav class="nav-left">
-			  <a href="{%url 'homepage'%}"><i class="fa fa-home"></i>Home</a>
 			  {% if user.is_authenticated %}
+			  <a href="{%url 'students'%}"><i class="fa fa-home"></i>Home</a>
 			  <a href="{%url 'list_student' username=user.username %}"><i class="fa fa-user"></i>{{user.username}}</a>
 			  {%else%}
-			  <a href="/accounts/login/"><i class="fa fa-user"></i>My Profile</a>
+			  <a href="{%url 'homepage'%}"><i class="fi-ctluxl-sign-in-solid"></i>Home</a>
+			  <a href="{%url 'login'}"><i class="fa fa-user"></i>My Profile</a>
 			  {%endif%}
 			</nav>
 
 
 			<!-- add the login required method here -->
 			<nav class="nav-right">
-				<a href=""><i class="fa fa-sign-in-alt"></i>Log In</a>
-				<a href="{% url 'new_student' %}"><i class="fas fa-user-plus"></i>Sign Up</a>
+				{% if not user.is_authenticated %}
+				<a href="{%url 'login'%}"><i class="fi-xtluxl-sign-in-thin"></i>Log In</a>
+				<a href="{% url 'new_student' %}"><i class="fi-xtluxl-user-plus-thin">
+				</i>Sign Up</a>
+				{%else%}
+				<a href="{% url 'logout' %}"><i class="fi-ctluxl-sign-out-solid"></i>Logout</a>
+				{%endif%}
 			</nav>
 		</div>
 	</section>
