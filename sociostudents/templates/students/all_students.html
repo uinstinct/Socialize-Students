@@ -2,31 +2,36 @@
 {% load static %}
 
 {%block head%}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/all_students.css' %}">
     <title>SocioStudents</title>
 {%endblock head%}
 {%block content%}
-
-{%if user.is_authenticated %}
-<h1>{{user.username}} is logged in</h1>
-{%else%}
-<h1>You are NOT logged In</h1>
-{%endif%}
+<section class="ui container" id="page">
+<section class="allStudents">
     {%for student in students%}
-    <article id="stud">
-
-        <div id="profilePhoto"><img src="https://images.pexels.com/photos/3541388/pexels-photo-3541388.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="profile pic" id="profile_pic" width="100px" height="30px"></div>
-        
-        <div id="details">
-            <span>Name : {{student.name}} </span><br>
-
-            <span>Year : {{student.year}} </span><br>
-
-            <span> My college is {{student.college}} </span><br>
-
-            <span>Find out <a href="{%url 'list_student' username=student.username %}">@{{student.username}}</a> </span><br>
+        <div id="profile" class="ui card">
+              <div class="image">
+                <img src="{%static 'images/studentDisplayImage.jpg'%}">
+              </div>
+              <div class="content">
+                <a class="header" href="{%url 'list_student' username=student.username %}">{{student.name}}</a>
+                <div class="meta">
+                  <span class="date">{{student.college}}</span>
+                </div>
+                <div class="description">
+                  {{student.bio}}
+                </div>
+              </div>
+              <div class="extra content">
+                <a href="{%url 'list_student' username=student.username %}">
+                  <i class="user icon"></i>
+                  @{{student.username}}
+                </a>
+              </div>
         </div>
 
-    </article>
     {%endfor%}
+</section>
+</section>
 {%endblock content%}   

@@ -1,41 +1,8 @@
-#stud
+.allStudents
 {
-	border: 1px solid black;
-	border-radius: 3rem;
-	margin-top: 3rem;
-	padding-left: 5rem;
-	padding-bottom: 1rem;
-	padding-top: 1rem;
-	display: flex;
-	flex: 0 0 50%;
-	flex-direction: row;
-	justify-content: space-around;
-	height: 7rem;
-	width: 100%;
-}
-
-#profilePhoto
-{
-	margin-left: -10rem;
-	box-shadow: 2.5rem 2.5rem lightyellow;
-	z-index: -1;
-}
-
-#profile_pic
-{
-	height: 7rem;
-}
-
-#stud span
-{
-	line-height: 1.5;
-}
-
-#stud a
-{
-	text-decoration: none;
-}
-#stud a:hover
-{
-	text-decoration: underline;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-column-gap: 1rem;
+	grid-row-gap: 1rem;
 }
