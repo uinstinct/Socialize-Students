@@ -7,5 +7,6 @@ urlpatterns = [
     path('students/<str:username>', views.list_student,name='list_student'),
     path('students/new/',views.new_student,name='new_student'),
     path('students/<str:username>/edit/', views.edit_student, name='edit_student'),
+    path('students/<str:username>/delete/', views.delete_student, name="delete_student"),
     # we have a / at the end because otherwise path will matched against /<str:username>
 ]

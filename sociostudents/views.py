@@ -9,7 +9,6 @@ from django.contrib.auth.models import User
 def homepage(request):
     return render(request,'landingpage.html')
 
-
 def all_students(request):
     students = Student.objects.all()
     return render(request, 'students/all_students.html', {'students': students})
@@ -19,7 +18,7 @@ def list_student(request, username):
     student =  get_object_or_404(Student, username=username)
     return render(request, 'students/profilepage.html', {'student':student})
 
-# @login_required
+@login_required
 def edit_student(request, username):
 	# print(username)
 	student = get_object_or_404(Student, username=username)
@@ -73,6 +72,15 @@ def new_student(request):
 	else:
 		form = StudentForm()
 	return render(request,'students/new_student.html',{'form':form})
+
+def delete_student(request, username):
+	student= get_object_or_404(Student, username=username)
+	user= get_object_or_404(User, username=username)
+
+	student.delete()
+	user.delete()
+
+	return redirect('/')
 
 def logout_view(request):
 	logout(request)
