@@ -40,7 +40,6 @@ def edit_student(request, username):
 			user.email=editStudent.email
 			user.save();
 			# changing the student account
-			editStudent.city='Xaden'
 			editStudent.save()
 			return redirect('list_student', username=editStudent.username)
 		else:
@@ -61,7 +60,6 @@ def new_student(request):
 			# print(user)
 			user.save()
 
-			newStudent.state='Jadiop'
 			newStudent.save()
 			if request.user.is_authenticated:
 				redirect('logout')
