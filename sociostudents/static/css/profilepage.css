@@ -167,23 +167,58 @@ a:hover
 
 #skills
 {
-	color: black
+	color: black;
 	font-size: 2rem;
 	border: 1px solid #b3ffff;
 	border-radius: 1rem;
-	background-color: black;
+	background-color: white;
 }
 
 #city
 {
-	font-size: 1.5rem;
-	background-color: #00e673;
-	box-shadow: 0.3rem 0.3rem #33cc33;
-	margin-right: 0.5rem;
+	font-size: 2.75rem;
+	text-transform: capitalize;
 }
 #state
 {
-	font-size: 1.5rem;
-	background-color: #00cc66;
-	box-shadow: 0.3rem 0.3rem #2eb82e;
+	font-size: 2.75rem;
+	text-transform: capitalize;
+}
+.image
+{
+	position: relative;
+	padding-left: 15rem;
+}
+.editbutton
+{
+	background-color: yellow;
+	box-shadow: 1rem 1rem #cccc00;
+	width: 100%;
+	margin-bottom: 2rem;
+	text-align: center;
+	vertical-align: middle;
+}
+.editbutton button
+{
+	background-color: transparent;
+	border: none;
+	font-size: 3rem;
+	color: white;
+}
+.deletebutton
+{
+	background-color: red;
+	box-shadow: 1rem 1rem #b32400;
+	width: 100%;
+	text-align: center;
+	vertical-align: middle;
+	margin-bottom: 2rem;
+}
+
+.deletebutton button
+{
+	background-color: transparent;
+	border: none;
+	font-size: 3rem;
+	color: white;
 }
