@@ -1,15 +1,146 @@
 {% extends "students/base.html" %}
+{%load static%}
 
+{%block header%}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+   @import url('https://fonts.googleapis.com/css?family=Fira+Sans&display=swap');
+body
+{
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.5;
+  font-family: 'Fira Sans', sans-serif;
+}
+body::before
+{
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: linear-gradient(
+      115deg,rgba(85, 167, 249,0.5),rgba(11, 111, 210,0.5)
+    ),
+    url(https://2.bp.blogspot.com/-XZN2TA7nQZ0/WGSL3ia76KI/AAAAAAAAGuE/8pxmxtrizn8Yu1Y6iIArXYBgsL3Rhww3ACLcB/s1600/telegram-bot.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#header
+{
+  line-height: 1.1;
+  padding: 30px;
+  background-color: #0000cc;
+  margin: 0 auto 1.2rem auto;
+  text-align: center;
+  opacity: 0.65;
+  color: white;
+  border-radius: 0.75rem;
+}
+#title
+{
+  font-size: 3rem;
+}
+#description
+{
+  font-size: 2.25rem;
+  font-style: italic;
+}
+
+#page
+{
+  margin: 3.125rem auto 0 auto;
+  width: 100%;
+  max-width: 720px;
+  /*the codes of #page above this line are responsible for centering of the form*/
+  color: white;
+}
+form
+{
+  background-color: #4775d1;
+  padding: 5%;
+  font-size: 1.15rem;
+  opacity: 0.75;
+  padding-right: 3.5rem;
+}
+.form-group
+{
+  display: block;
+  margin: 1rem;
+}
+.form-control
+{
+  display: block;
+  height: 2.375rem;
+  width: 100%;
+  margin-left: 0.75rem;
+  color: green;
+  background-clip: padding-box;
+  border: solid 1px blue;
+  border-radius: 0.25rem;
+  padding: 0.35rem 0.75rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-control:focus
+{
+  border-color: blue;
+  outline: 0;
+  box-shadow: 0 0 0 0.4rem lightblue; 
+}
+input, select, textarea, button
+{
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+label
+{
+  display: block;
+  align-items: center;
+  font-size: 1.3rem;
+  margin-bottom: 0.65rem;
+  font-weight: 525;
+}
+.input-radio
+{
+  display: inline-block;
+  min-width: 1.25rem;
+  min-height: 1.25rem;
+  margin-right: 0.5rem;
+}
+textarea
+{
+  width: 100%;
+  min-height: 10.25rem;
+}
+#email-assurance
+{
+  display: block;
+  font-size: 0.75em;
+  padding-left: 1rem;
+}
+.form-group p
+{
+  font-size: 1.3rem;
+  opacity: 0.75;
+}
+.submit
+{
+  width: 100%;
+  background-color: lightgreen;
+  box-shadow: 0.25rem 0.25rem 0 0 green;
+  border-radius: 0.5rem;
+} 
+</style>
+{%endblock header%}
 {% block content %}
     {% if form.errors %}
         <p>Your username and password didn't match. Please try again.</p>
     {% endif %}
-
-    <hr>
-    <hr>
-    <p>{{form}}</p>
-    <hr>
-    <hr>
 
 
     <form method="post" action="{% url 'login' %}">
@@ -28,4 +159,6 @@
         <input type="submit" value="login" />
         <input type="hidden" name="next" value="{{ next }}" />
     </form>
-{% endblock %}
+
+
+{% endblock content%}
