@@ -27,6 +27,7 @@ def edit_student(request, username):
 	# print(student.name)
 	user = get_object_or_404(User, username=username)
 	if request.method == "POST":
+		print('here1')
 		form = StudentForm(request.POST, instance=student)
 		if form.is_valid():
 			editStudent=form.save(commit=False)
@@ -35,14 +36,16 @@ def edit_student(request, username):
 			print(editStudent)
 
 			# changing the user account
-			# user.username=editStudent.username
-			# user.password=editStudent.password
-			# user.email=editStudent.email
-			# user.save();
-			#changing the student account
+			user.username=editStudent.username
+			user.password=editStudent.password
+			user.email=editStudent.email
+			user.save();
+			# changing the student account
 			editStudent.city='Xaden'
 			editStudent.save()
 			return redirect('list_student', username=editStudent.username)
+		else:
+			print(form.errors)
 	else:
 		form=StudentForm(instance=student)
 	return render(request, 'students/editProfile.html',{'student':student})
@@ -61,12 +64,16 @@ def new_student(request):
 
 			newStudent.state='Jadiop'
 			newStudent.save()
-			return redirect('list_student', username=newStudent.username)
+			if request.user.is_authenticated():
+				logout(request)
+				return render(request, 'registration/login.html')
+			else:
+				return render(request, 'students/profilepage.html', {'student':student})
 
 	else:
 		form = StudentForm()
 	return render(request,'students/new_student.html',{'form':form})
 
-	def logout_view(request):
-		logout(request)
-		return redirect('/')
+def logout_view(request):
+	logout(request)
+	return redirect('/')

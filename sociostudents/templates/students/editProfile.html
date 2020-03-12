@@ -43,7 +43,7 @@
 
 				<section class="form-group">
 					<label for="year">Which year are you in?</label>
-					<select class="form-control" id="year" required name="year">
+					<select class="form-control" id="year" required name="year" value="{{student.year}}">
 						<option selected value="{{student.year}}" disabled="">{{student.year}}</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -80,7 +80,7 @@
 
 				<section class="form-group">
 					<p>Add a little bio about you</p>
-					<textarea id="comments">{{student.bio}}</textarea>
+					<textarea name="bio" id="comments">{{student.bio}}</textarea>
 				</section>
 				<button class="submit">EDIT</button>
 	        	</section>
