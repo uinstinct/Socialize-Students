@@ -40,7 +40,7 @@
 
 			        <span> Skills : <span id="skills"> {{student.skills}}</span></span><br>
 
-			        <span> I live in : <span id="city">{{student.city}}</span> , <span id="state">{{student.state}}</span>  <a href="https://duckduckgo.com/?q={{student.city}}+{{student.state}}&iaxm=maps" style="background-color: transparent; margin-top: -250rem;"><i class="fi-snsuxl-map-marker"></i></a></span><br>
+			        <span> I live in : <span id="city">{{student.city}}</span> , <span id="state">{{student.state}}</span>  <a href="https://duckduckgo.com/?q={{student.city}}+{{student.state}}&iaxm=maps" target="_blank" style="background-color: transparent; margin-top: -250rem;"><i class="fi-snsuxl-map-marker"></i></a></span><br>
 			        {%if student.username == request.user.username%}
 			        <div class="editbutton">
 			        	<button><a href="{%url 'edit_student' username=student.username%}">EDIT</a></button>
