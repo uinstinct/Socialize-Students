@@ -4,9 +4,11 @@ Live at https://djangoaditya.pythonanywhere.com
 
 ## A web application created for students to get social and know each other better. 
 
-### Created using Djnago
+#### Created using Djnago
 
-### Database used is SQLLite3#Socio Students 
+#### Database used is SQLLite3
+***
+# Socio Students 
 
 
 
