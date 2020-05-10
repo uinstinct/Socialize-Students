@@ -1,7 +1,7 @@
 {% extends "students/base.html" %}
 {%load static%}
 
-{%block header%}
+{%block head%}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style type="text/css">
    @import url('https://fonts.googleapis.com/css?family=Fira+Sans&display=swap');
@@ -136,7 +136,7 @@ textarea
   border-radius: 0.5rem;
 } 
 </style>
-{%endblock header%}
+{%endblock head%}
 {% block content %}
     {% if form.errors %}
         <p>Your username and password didn't match. Please try again.</p>
